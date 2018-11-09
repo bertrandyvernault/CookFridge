@@ -1,3 +1,3 @@
 # CookFridge
-Projet : Frigo connecté \n
+Projet : Frigo connecté
 Manouk Simon & Bertrand Yvernault
