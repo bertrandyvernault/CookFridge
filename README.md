@@ -1,5 +1,5 @@
 # CookFridge  
 Projet : Objet connecté  
-Objectif : Comment rendre votre réfrigérateur connecté?  
+Objectif : Comment rendre votre réfrigérateur connecté?
 Fonctionnalitées :  
-Manouk SIMON & Bertrand YVERNAULT  
+Manouk SIMON & Bertrand YVERNAULT
