@@ -1,5 +1,5 @@
 # CookFridge  
-Projet : Objet connecté  
-Objectif : Comment rendre votre réfrigérateur connecté?
-Fonctionnalitées :  
+Personal Project : Connected Object 
+Goals : How to make your fridge connected ?
+
 Manouk SIMON & Bertrand YVERNAULT
