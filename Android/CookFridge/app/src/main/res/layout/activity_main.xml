@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,11 +14,11 @@
         android:gravity="center"
         android:text="COOK FRIDGE"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:textSize="18sp"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <TextView

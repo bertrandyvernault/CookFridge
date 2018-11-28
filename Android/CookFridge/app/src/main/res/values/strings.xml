@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CookFridge</string>
+    <string name="item_default_name">Name of the article</string>
+    <string name="item_default_amount">Number of Article</string>
 </resources>

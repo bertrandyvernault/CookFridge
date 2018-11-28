@@ -3,12 +3,10 @@ package model;
 public class ItemRowFridge {
     private String mName;
     private int mAmount;
-    private String mDate;
 
-    public ItemRowFridge(String pseudo, int score, String date) {
-        mName = pseudo;
-        mAmount = score;
-        mDate = date;
+    public ItemRowFridge(String pseudo, int score) {
+        this.mName = pseudo;
+        this.mAmount = score;
     }
 
     public String getName() {
@@ -17,9 +15,5 @@ public class ItemRowFridge {
 
     public int getAmount() {
         return mAmount;
-    }
-
-    public String getDate() {
-        return mDate;
     }
 }

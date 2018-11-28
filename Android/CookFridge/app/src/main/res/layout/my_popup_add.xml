@@ -10,8 +10,10 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NEW ARTICLE"
-        android:textSize="50dp"/>
+        android:text="Add your Article"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -20,20 +22,30 @@
 
         <TextView
             android:id="@+id/text_name"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="20dp"
             android:text="Name :"
-            android:textSize="12dp"/>
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            />
 
         <EditText
             android:id="@+id/edit_text_name"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="20dp"
-            android:text="ARTICLE" />
+            android:textSize="10dp"
+            android:layout_weight="1"
+            android:text="ARTICLE"
+            android:textAlignment="center"
+            />
+
     </LinearLayout>
 
      <LinearLayout
@@ -43,24 +55,30 @@
 
          <TextView
              android:id="@+id/text_amount"
-             android:layout_width="wrap_content"
+             android:layout_width="200dp"
              android:layout_height="wrap_content"
              android:layout_margin="10dp"
              android:padding="20dp"
              android:text="Amount :"
-             android:textSize="12dp"/>
+             android:textSize="20dp"
+             android:textAlignment="center"
+             android:textStyle="bold"
+             android:textColor="@color/colorPrimaryDark"/>
 
          <EditText
              android:id="@+id/edit_text_amount"
-             android:layout_width="wrap_content"
+             android:layout_width="140dp"
              android:layout_height="wrap_content"
              android:layout_margin="10dp"
              android:padding="20dp"
-             android:text="AMOUNT"/>
+             android:textSize="10dp"
+             android:text="AMOUNT"
+             android:layout_weight="1"
+             android:textAlignment="center"/>
 
      </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -68,21 +86,24 @@
 
         <Button
             android:id="@+id/done_button"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="20dp"
-            android:text="Done"/>
+            android:text="Done"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <Button
             android:id="@+id/cancel_button"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:padding="20dp"
-            android:text="Cancel"/>
+            android:text="Cancel"
+            android:layout_below="@+id/done_button"
+            android:textColor="@color/colorPrimaryDark"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </LinearLayout>
