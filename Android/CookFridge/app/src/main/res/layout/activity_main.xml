@@ -23,12 +23,15 @@
 
     <TextView
         android:id="@+id/activity_main_image"
-        android:layout_width="187dp"
-        android:layout_height="204dp"
+        android:layout_width="322dp"
+        android:layout_height="357dp"
         android:layout_below="@+id/activity_main_bt_fridge"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
-        android:background="@drawable/image2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:background="@drawable/frigo2"
         android:gravity="center" />
 
     <Button

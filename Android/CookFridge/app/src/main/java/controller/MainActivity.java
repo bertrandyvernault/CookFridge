@@ -3,6 +3,8 @@ package controller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.content.SharedPreferences;
@@ -11,7 +13,9 @@ import android.widget.TextView;
 
 import com.example.bertrandyvernault.cookfridge.R;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import model.ItemRowFridge;
@@ -43,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         mAddButton = (Button) findViewById(R.id.activity_main_bt_add);
         mRemoveButton = (Button) findViewById(R.id.activity_main_bt_rm);
 
+        mPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPreferences.getString(ITEM_DATA, null);
+        Type type = new TypeToken<ArrayList<ItemRowFridge>>() {
+        }.getType(); //We specify precisely that Gson should convert it to a List of ItemRowFridge.
+        mItemRowFridge = gson.fromJson(json, type);
+
+        mFridgeButton.setEnabled(!mItemRowFridge.isEmpty());
 
         //  This here where we handle the access to the list fridge activity
         mFridgeButton.setOnClickListener(new View.OnClickListener() {
@@ -59,26 +71,44 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Open a Pop up Activity to add an product
                 final CustomPopUp customPopUp = new CustomPopUp(activity);
-                customPopUp.getDoneButton().setOnClickListener(new View.OnClickListener() {
+                customPopUp.getNameViewEdit().addTextChangedListener(new TextWatcher() {
                     @Override
-                    public void onClick(View v) {
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
                         //Stock the name and amount of the Article (user text input)
-                        String nameArticle = customPopUp.getNameViewEdit().getText().toString();
-                        int amountArticle = (int) Integer.parseInt(customPopUp.getAmountViewEdit().getText().toString());
+                        final String nameArticle = customPopUp.getNameViewEdit().getText().toString();
 
-                        // We add our new product to the list of Item in the fridge
-                        mItemRowFridge.add(new ItemRowFridge(nameArticle,amountArticle));
+                        customPopUp.getDoneButton().setEnabled(!nameArticle.isEmpty());
+                        customPopUp.getDoneButton().setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                int amountArticle = (int) Integer.parseInt(customPopUp.getAmountViewEdit().getText().toString());
 
-                        // We save array in shared preferences using Gson library
-                        SharedPreferences.Editor editor = mPreferences.edit();
-                        Gson gson = new Gson();
-                        String json = gson.toJson(mItemRowFridge);
-                        editor.putString(ITEM_DATA, json);
-                        editor.apply();
+                                // We add our new product to the list of Item in the fridge
+                                mItemRowFridge.add(new ItemRowFridge(nameArticle,amountArticle));
 
-                        customPopUp.dismiss();
+                                // We save array in shared preferences using Gson library
+                                SharedPreferences.Editor editor = mPreferences.edit();
+                                Gson gson = new Gson();
+                                String json = gson.toJson(mItemRowFridge);
+                                editor.putString(ITEM_DATA, json);
+                                editor.apply();
+
+                                customPopUp.dismiss();
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
                     }
                 });
+
                 customPopUp.getCancelButton().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

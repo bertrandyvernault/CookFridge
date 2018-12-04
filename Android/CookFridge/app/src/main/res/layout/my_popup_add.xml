@@ -42,7 +42,7 @@
             android:padding="20dp"
             android:textSize="10dp"
             android:layout_weight="1"
-            android:text="ARTICLE"
+            android:hint="ARTICLE"
             android:textAlignment="center"
             />
 
@@ -72,7 +72,8 @@
              android:layout_margin="10dp"
              android:padding="20dp"
              android:textSize="10dp"
-             android:text="AMOUNT"
+             android:text="1"
+             android:hint="AMOUNT"
              android:layout_weight="1"
              android:textAlignment="center"/>
 
@@ -91,7 +92,8 @@
             android:layout_margin="10dp"
             android:padding="20dp"
             android:text="Done"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:enabled="false"/>
 
         <Button
             android:id="@+id/cancel_button"
