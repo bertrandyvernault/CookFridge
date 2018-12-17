@@ -7,4 +7,5 @@ Partie dev_ber :
 	- Recuperation et Affichage de produit de la BBD : OK
 	- fonction "ADD" : NOK
 	- fonction "Remove" : NOK  
+
 Manouk SIMON & Bertrand YVERNAULT
