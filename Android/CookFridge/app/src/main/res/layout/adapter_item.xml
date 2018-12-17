@@ -31,6 +31,14 @@
             android:text="@string/item_default_amount"
             android:layout_below="@id/item_name"/>
 
+        <TextView
+            android:id="@+id/item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/item_default_date"
+            android:layout_below="@id/item_amount"/>
+
     </RelativeLayout>
 
 </LinearLayout>

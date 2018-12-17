@@ -18,7 +18,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-import model.ItemRowFridge;
+import model.Product;
 import view.CustomPopUp;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private Button mFridgeButton;
     private Button mAddButton;
     private Button mRemoveButton;
+    private Button mTestButton;
     private MainActivity activity;
     private SharedPreferences mPreferences;
-    public static ArrayList<ItemRowFridge> mItemRowFridge = new ArrayList<>();
+    public static ArrayList<Product> mProduct = new ArrayList<>();
 
     public static final String SHARED_PREFS = "sharedPrefs";
     private static final String ITEM_DATA = "MOOD_DATA";
@@ -46,15 +47,16 @@ public class MainActivity extends AppCompatActivity {
         mFridgeButton = (Button) findViewById(R.id.activity_main_bt_fridge);
         mAddButton = (Button) findViewById(R.id.activity_main_bt_add);
         mRemoveButton = (Button) findViewById(R.id.activity_main_bt_rm);
+        mTestButton = (Button) findViewById(R.id.button_test);
 
         mPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPreferences.getString(ITEM_DATA, null);
-        Type type = new TypeToken<ArrayList<ItemRowFridge>>() {
+        Type type = new TypeToken<ArrayList<Product>>() {
         }.getType(); //We specify precisely that Gson should convert it to a List of ItemRowFridge.
-        mItemRowFridge = gson.fromJson(json, type);
+        mProduct = gson.fromJson(json, type);
 
-        mFridgeButton.setEnabled(!mItemRowFridge.isEmpty());
+        mFridgeButton.setEnabled(!mProduct.isEmpty());
 
         //  This here where we handle the access to the list fridge activity
         mFridgeButton.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent listFridgeActivity = new Intent(MainActivity.this, ListFridgeActivity.class);
                 startActivity(listFridgeActivity);
+            }
+        });
+
+        mTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent testActivity = new Intent(MainActivity.this, TestActivity.class);
+                startActivity(testActivity);
             }
         });
 
@@ -89,12 +99,12 @@ public class MainActivity extends AppCompatActivity {
                                 int amountArticle = (int) Integer.parseInt(customPopUp.getAmountViewEdit().getText().toString());
 
                                 // We add our new product to the list of Item in the fridge
-                                mItemRowFridge.add(new ItemRowFridge(nameArticle,amountArticle));
+                                mProduct.add(new Product(nameArticle,amountArticle,1,"2018/12/12", "apple.png"));
 
                                 // We save array in shared preferences using Gson library
                                 SharedPreferences.Editor editor = mPreferences.edit();
                                 Gson gson = new Gson();
-                                String json = gson.toJson(mItemRowFridge);
+                                String json = gson.toJson(mProduct);
                                 editor.putString(ITEM_DATA, json);
                                 editor.apply();
 

@@ -2,6 +2,7 @@ package view;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,33 +12,34 @@ import android.widget.TextView;
 
 import com.example.bertrandyvernault.cookfridge.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import model.ItemRowFridge;
+import model.Product;
 
 public class FridgeItemAdapter extends BaseAdapter {
 
     //Fields
     private Context mContext;
-    private List<ItemRowFridge> mItemRowFridges;
+    private List<Product> mProduct;
     private LayoutInflater mInflater;
 
     //constructor
-    public FridgeItemAdapter(Context context, List<ItemRowFridge> itemRowFridges)
+    public FridgeItemAdapter(Context context, ArrayList<Product> itemRowFridges)
     {
         this.mContext = context;
-        this.mItemRowFridges = itemRowFridges;
+        this.mProduct = itemRowFridges;
         this.mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return mItemRowFridges.size();
+        return mProduct.size();
     }
 
     @Override
-    public ItemRowFridge getItem(int position) {
-        return mItemRowFridges.get(position);
+    public Product getItem(int position) {
+        return mProduct.get(position);
     }
 
     @Override
@@ -51,8 +53,10 @@ public class FridgeItemAdapter extends BaseAdapter {
         view = mInflater.inflate(R.layout.adapter_item, null);
 
         // get information about item
-        ItemRowFridge currentItem = getItem(position);
+        Product currentItem = getItem(position);
         String itemName = currentItem.getName();
+        String itemDate = currentItem.getDate();
+        String itemImage = currentItem.getImage();
         int itemAmount = currentItem.getAmount();
 
         TextView itemNameView = view.findViewById(R.id.item_name);
@@ -60,6 +64,13 @@ public class FridgeItemAdapter extends BaseAdapter {
 
         TextView itemAmountView = view.findViewById(R.id.item_amount);
         itemAmountView.setText(String.valueOf(itemAmount));
+
+        TextView itemDateView = view.findViewById(R.id.item_date);
+        itemDateView.setText(String.valueOf(itemDate));
+
+        ImageView itemImageView = view.findViewById(R.id.item_icon);
+        int resId = mContext.getResources().getIdentifier(itemImage,  "drawable", mContext.getPackageName());
+        itemImageView.setImageResource(resId);
 
 
         return view;
