@@ -1,5 +1,6 @@
 package controller;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class ListFridgeActivity extends AppCompatActivity {
     private ListView mListView;
     public static ArrayList<Product> mProduct = new ArrayList<>();
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class ListFridgeActivity extends AppCompatActivity {
 
         HttpCall httpCall = new HttpCall();
         httpCall.setMethodtype(HttpCall.GET);
-        httpCall.setUrl("http://192.168.1.12:8090/api/product/read.php");
+        httpCall.setUrl("http://192.168.43.84:8090/api/product/read.php");
         HashMap<String,String> params = new HashMap<>();
         //params.put("s","tomate");
         httpCall.setParams(params);
@@ -59,8 +61,7 @@ public class ListFridgeActivity extends AppCompatActivity {
                                 Jasonobject.getString("name"),
                                 Jasonobject.getInt("nombre"),
                                 Jasonobject.getInt("nombre"),
-                                Jasonobject.getString("date"),
-                                Jasonobject.getString("image"));
+                                Jasonobject.getString("date"));
                         boolean test = true;
                         for(Product product : mProduct){
                             // Verifie que le produit n'est pas déjà dans notre Liste
@@ -76,11 +77,10 @@ public class ListFridgeActivity extends AppCompatActivity {
             }
         }.execute(httpCall);
 
-
         // get list view
         mListView = findViewById(R.id.list_view);
         mListView.setAdapter(new FridgeItemAdapter(this,mProduct));
-
-
     }
+
+
 }

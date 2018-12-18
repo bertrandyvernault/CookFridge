@@ -11,14 +11,12 @@ public class Product {
     private int mCategory;
     private int mAmount;
     private String mDate;
-    private String mImage;
 
-    public Product(String pseudo, int amount, int category, String date, String mImage) {
+    public Product(String pseudo, int amount, int category, String date) {
         this.mName = pseudo;
         this.mAmount = amount;
         this.mCategory = category;
         this.mDate = date;
-        this.mImage = mImage;
     }
 
     public String getName() { return mName; }
@@ -35,15 +33,7 @@ public class Product {
 
     public String getDate() { return mDate; }
 
-    public void setDate(String date) { mDate = date; }
-
-    public String getImage() {
-        return mImage;
-    }
-
-    public void setImage(String image) {
-        mImage = image;
-    }
+    public void setDate(String date) { mDate =date; }
 
     /**
      * conversion du product au format jsonArray

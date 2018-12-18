@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name="controller.ListFridgeActivity"></activity>
-        <activity android:name="controller.TestActivity"></activity>
+
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
     </application>

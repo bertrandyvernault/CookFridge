@@ -1,6 +1,7 @@
 package outils;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -51,12 +52,13 @@ public class HttpRequest extends AsyncTask<HttpCall, String, String> {
                 }
             }
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            Log.d("ERREUR ENCODING","*****************"+e);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            Log.d("ERREUR MALFORMED","*****************"+e);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.d("ERREUR IO","*****************"+e);
         }finally {
+            Log.d("DECO","*****************");
             urlConnection.disconnect();
         }
         return response.toString();
