@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="11dp"
+    android:id="@+id/linearProduct">
+
+
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_weight="0"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image"
+        android:cropToPadding="true"
+        android:gravity="center"
+        android:src="@drawable/frigo2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/item_default_amount"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="10sp"/>
+
+        <TextView
+            android:id="@+id/item_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name"
+            android:gravity="center"
+            android:text="@string/item_default_amount"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/item_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_amount"
+            android:gravity="center"
+            android:text="@string/item_default_date"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="10sp"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+

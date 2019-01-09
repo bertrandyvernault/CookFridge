@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">FoodFridge</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_notifi">Notification</string>
+    <string name="nav_add">add</string>
+    <string name="nav_account">Account</string>
+    <string name="nav_frigdge">Fridge</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_search">Search</string>
+
+    <string name="item_default_name">Nom du produit</string>
+    <string name="item_default_amount">Nombres de produits</string>
+    <string name="item_default_date">Date de péremption</string>
+
+    <string name="fruit_legume">Fruits &amp; Légumes</string>
+    <string name="produit_laitiers">Produits Laitiers</string>
+    <string name="boucheries">Boucheries</string>
+    <string name="poissons">Poissons</string>
+    <string name="sauces">Sauces &amp; ingrédiants</string>
+    <string name="vins">Vins &amp; Boissons</string>
+    <string name="surgeles">Vins &amp; Surgelés &amp; Plats Cuisinés</string>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image">image</string>
+</resources>
