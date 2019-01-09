@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">CookFridge</string>
-    <string name="item_default_name">Nom du produit</string>
-    <string name="item_default_amount">Nombres de produits</string>
-    <string name="item_default_date">Date de péremption</string>
-</resources>
